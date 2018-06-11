@@ -1,14 +1,20 @@
 import React from 'react'
-import {Text, TextInput, ActivityIndicator, View, StyleSheet} from 'react-native'
+import {Text, TextInput, ActivityIndicator, View, StyleSheet, Image, Button} from 'react-native'
 
 
 export default class Search extends React.Component{
+
+
 
     constructor(props){
         super(props)
         this.state ={
             city: 'Annecy'
         }
+    }
+
+    submit () {
+
     }
 
 
@@ -21,6 +27,8 @@ export default class Search extends React.Component{
                     style = {styles.textInput}
                     value={this.state.city}
                     />
+
+                <Button onPress={ () => this.submit()} title = "Rechercher"/>
             </View>
         )
     }
