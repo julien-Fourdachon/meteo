@@ -1,10 +1,10 @@
-
+const red = "#a2273c"
 
 export default {
-    color: '#a2273c',
+    color: 'red',
     button:{
         color : '#FFFFFF',
-        backgroundColor: '#a2273c'
+        backgroundColor: 'red'
     },
     title :{
         fontSize: 26,
@@ -22,5 +22,14 @@ export default {
         height: 45,
         margin: 20
 
+    },
+    header: {
+        backgroundColor: red,
+    },
+
+    headerTitle: {
+        color : "#FFF"
     }
+
+
 }

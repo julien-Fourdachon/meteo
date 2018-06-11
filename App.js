@@ -9,6 +9,7 @@ const Tabs = createBottomTabNavigator({
         Search: {
             screen: Search,
             navigationOptions: () => ({
+                title : 'Rechercher une ville',
                 tabBarIcon: ({}) => (
                     <Image source ={require('./icons/home.png')} style = {{width:25, height:25, tintColor: "#FFF"}}/>
                 )

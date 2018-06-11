@@ -9,17 +9,24 @@ class Search extends React.Component{
 
 
 static navigationOptions = {
-    title : 'Rechercher une ville'
+    title : 'Rechercher une ville',
 }
+
     constructor(props){
         super(props)
         this.state ={
-            city: 'Annecy'
+            city: 'Montpellier'
         }
+        console.log(this.state)
     }
 
+    setCity (city){
+        this.setState({city})
+    }
     submit () {
         this.props.navigation.navigate('Result', {city: this.state.city})
+        console.log(this.state.city)
+
     }
 
 
@@ -31,6 +38,7 @@ static navigationOptions = {
                     underlineColorAndroid = 'transparent'
                     style = {style.textInput}
                     value={this.state.city}
+                    onChangeText = {(text) => this.setCity(text)}
                     />
 
                 <Button color ={ style.color } onPress={ () => this.submit()} title = "Rechercher"/>
@@ -39,12 +47,31 @@ static navigationOptions = {
     }
 }
 
-export default createStackNavigator ({
-    Search: {
-        screen: Search,
 
-    },
+
+
+const navigationOptions = {
+    headerStyle: style.header,
+    headerTitleStyle: style.headerTitle,
+    headerBackTitleStyle: style.headerTitle
+}
+export default createStackNavigator ({
+
+
+
     Result :{
         screen: Results,
-    }
+        navigationOptions,
+
+    },
+
+
+    Search: {
+        screen: Search,
+        navigationOptions
+
+
+    },
+
+
 })
