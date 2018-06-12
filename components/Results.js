@@ -2,24 +2,27 @@ import React from 'react'
 import {ActivityIndicator, ListView, Text} from 'react-native'
 import style from './Style'
 import axios from 'axios'
+import WeatherRow from './weather/Row'
 
 
 export default class Results extends React.Component {
 
     static navigationOptions = ({navigation}) => {
         return {
-            //title: `Météo / ${navigation.state.params.city}`
+            title: `Météo / ${navigation.state.params.city}`
         }
     }
 
     constructor(props) {
         super(props)
         this.state = {
-            //city: this.props.navigation.state.city,
-            city: 'Montpellier',
+            city: this.props.navigation.state.params.city,
             report: null,
         }
-        this.fetchWeather()
+        setTimeout(() => {
+            this.fetchWeather()
+
+        }, 1000)
     }
 
 
@@ -45,7 +48,7 @@ export default class Results extends React.Component {
             return (
                 <ListView
                     dataSource={ds.cloneWithRows(this.state.report.list)}
-                    renderRow={(row) => <Text>{row.temp.day}</Text>}
+                    renderRow={(row, j, k) => <WeatherRow day = {row} index ={parseInt(k, 10)}/>}
                 />
             )
         }

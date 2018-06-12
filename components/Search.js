@@ -39,6 +39,7 @@ static navigationOptions = {
                     style = {style.textInput}
                     value={this.state.city}
                     onChangeText = {(text) => this.setCity(text)}
+                    onSubmitEditing = {() => this.submit()}
                     />
 
                 <Button color ={ style.color } onPress={ () => this.submit()} title = "Rechercher"/>
@@ -57,6 +58,12 @@ const navigationOptions = {
 }
 export default createStackNavigator ({
 
+    Search: {
+        screen: Search,
+        navigationOptions
+
+
+    },
 
 
     Result :{
@@ -65,13 +72,6 @@ export default createStackNavigator ({
 
     },
 
-
-    Search: {
-        screen: Search,
-        navigationOptions
-
-
-    },
 
 
 })
